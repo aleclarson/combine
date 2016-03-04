@@ -1,0 +1,8 @@
+{
+  "name": "combine",
+  "version": "1.0.0",
+  "main": "./js/src/index",
+  "dependencies": {
+    "has": "^1.0.1"
+  }
+}
