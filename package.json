@@ -1,8 +1,8 @@
 {
   "name": "combine",
   "version": "1.0.0",
-  "main": "./js/src/index",
+  "main": "./js/src/combine",
   "dependencies": {
-    "has": "^1.0.1"
+    "isObject": "aleclarson/isObject#1.0.0"
   }
 }
