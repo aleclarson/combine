@@ -28,7 +28,15 @@ module.exports = combine = function() {
       if (value === void 0) {
         continue;
       }
-      dest[key] = isObject(value) ? combine(dest[key], value) : dest[key] = value;
+      if (isObject(value)) {
+        if (isObject(dest[key])) {
+          combine(dest[key], value);
+        } else {
+          dest[key] = combine({}, value);
+        }
+      } else {
+        dest[key] = value;
+      }
     }
   }
   return dest;

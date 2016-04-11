@@ -4,5 +4,11 @@
   "main": "./js/src/combine",
   "dependencies": {
     "isObject": "aleclarson/isObject#1.0.0"
+  },
+  "lotus": {
+    "plugins": [
+      "lotus-coffee",
+      "lotus-runner"
+    ]
   }
 }

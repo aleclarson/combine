@@ -1,38 +1,18 @@
 
-# combine v1.0.0
+# combine v1.0.0 ![locked](https://img.shields.io/badge/stability-locked-0084B6.svg?style=flat)
 
-```bash
-$ npm install aleclarson/combine#1.0.0
-```
+- Ignores `undefined` values
 
-## usage
+- Ignores non-object arguments
 
-```CoffeeScript
+- Supports merging nested object literals
+
+```coffee
 combine = require "combine"
 
-a =
-  c:
-    d: 1
-    e: 1
+obj = { a: 1 }
 
-b =
-  c:
-    d: 2
-    f: 2
-  g: 2
+combine obj, { b: 2 }, { c: 3 }
 
-result = combine {}, a, b
-
-# result =
-#   c:
-#     d: 2
-#     e: 1
-#     f: 2
-#   g: 2
+obj # => { a: 1, b: 2, c: 3 }
 ```
-
-As seen above, `Object` literals are merged recursively.
-
-If a property is set to `undefined`, it is ignored.
-
-All other value types are overwritten.
