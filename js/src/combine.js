@@ -1,6 +1,6 @@
-var combine, isArray, isObject;
+var combine, isArray, isConstructor;
 
-isObject = require("isObject");
+isConstructor = require("isConstructor");
 
 isArray = Array.isArray;
 
@@ -15,7 +15,7 @@ module.exports = combine = function() {
   if (isArray(sources[0])) {
     sources = sources[0];
   }
-  if (!isObject(dest)) {
+  if (!isConstructor(dest, Object)) {
     return combine({}, sources);
   }
   for (j = 0, len1 = sources.length; j < len1; j++) {
@@ -28,14 +28,12 @@ module.exports = combine = function() {
       if (value === void 0) {
         continue;
       }
-      if (isObject(value)) {
-        if (isObject(dest[key])) {
-          combine(dest[key], value);
-        } else {
-          dest[key] = combine({}, value);
-        }
-      } else {
+      if (!isConstructor(value, Object)) {
         dest[key] = value;
+      } else if (!isConstructor(dest[key], Object)) {
+        dest[key] = combine({}, value);
+      } else {
+        combine(dest[key], value);
       }
     }
   }

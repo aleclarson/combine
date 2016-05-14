@@ -1,5 +1,5 @@
 
-isObject = require "isObject"
+isConstructor = require "isConstructor"
 isArray = Array.isArray
 
 module.exports =
@@ -13,7 +13,7 @@ combine = ->
   if isArray sources[0]
     sources = sources[0]
 
-  unless isObject dest
+  if not isConstructor dest, Object
     return combine {}, sources
 
   for source in sources
@@ -24,15 +24,13 @@ combine = ->
 
       continue if value is undefined
 
-      if isObject value
+      if not isConstructor value, Object
+        dest[key] = value
 
-        if isObject dest[key]
-          combine dest[key], value
-
-        else
-          dest[key] = combine {}, value
+      else if not isConstructor dest[key], Object
+        dest[key] = combine {}, value
 
       else
-        dest[key] = value
+        combine dest[key], value
 
   return dest

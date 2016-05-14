@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "./js/src/combine",
   "dependencies": {
-    "isObject": "aleclarson/isObject#1.0.0"
+    "isConstructor": "aleclarson/isConstructor#1.0.0"
   },
   "lotus": {
     "plugins": [
