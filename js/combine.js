@@ -4,7 +4,7 @@ isConstructor = require("isConstructor");
 
 isArray = Array.isArray;
 
-module.exports = combine = function() {
+combine = function() {
   var dest, i, index, j, key, len, len1, source, sources, value;
   sources = [];
   for (index = i = 0, len = arguments.length; i < len; index = ++i) {
@@ -40,4 +40,6 @@ module.exports = combine = function() {
   return dest;
 };
 
-//# sourceMappingURL=../../map/src/combine.map
+module.exports = combine;
+
+//# sourceMappingURL=map/combine.map

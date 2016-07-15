@@ -2,7 +2,6 @@
 isConstructor = require "isConstructor"
 isArray = Array.isArray
 
-module.exports =
 combine = ->
 
   sources = [] # Cannot leak arguments object!
@@ -34,3 +33,5 @@ combine = ->
         combine dest[key], value
 
   return dest
+
+module.exports = combine
