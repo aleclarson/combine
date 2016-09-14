@@ -2,13 +2,19 @@
   "name": "combine",
   "version": "1.0.0",
   "main": "js/combine",
-  "dependencies": {
-    "isConstructor": "aleclarson/isConstructor#1.0.0"
+  "plugins": [
+    "lotus-coffee",
+    "lotus-runner"
+  ],
+  "scripts": {
+    "build": "coffee -cb -o js src",
+    "postinstall": "postinstall-build js 'npm run build'"
   },
-  "lotus": {
-    "plugins": [
-      "lotus-coffee",
-      "lotus-runner"
-    ]
+  "dependencies": {
+    "isConstructor": "aleclarson/isConstructor#1.0.0",
+    "postinstall-build": "0.2.x"
+  },
+  "devDependencies": {
+    "coffee-script": "1.9.x"
   }
 }
