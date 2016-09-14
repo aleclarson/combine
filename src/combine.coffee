@@ -1,12 +1,11 @@
 
 isConstructor = require "isConstructor"
+cloneArgs = require "cloneArgs"
 isArray = Array.isArray
 
 combine = ->
 
-  sources = [] # Cannot leak arguments object!
-  sources[index] = value for value, index in arguments
-
+  sources = cloneArgs arguments
   dest = sources.shift()
 
   if isArray sources[0]

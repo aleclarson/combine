@@ -11,6 +11,7 @@
     "postinstall": "postinstall-build js 'npm run build'"
   },
   "dependencies": {
+    "cloneArgs": "aleclarson/cloneArgs#1.0.0",
     "isConstructor": "aleclarson/isConstructor#1.0.0",
     "postinstall-build": "0.2.x"
   },
