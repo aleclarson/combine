@@ -1,0 +1,9 @@
+{
+  "name": "combine",
+  "version": "1.0.0",
+  "main": "js/combine",
+  "dependencies": {
+    "cloneArgs": "aleclarson/cloneArgs#1.0.0",
+    "isConstructor": "aleclarson/isConstructor#1.0.0"
+  }
+}
